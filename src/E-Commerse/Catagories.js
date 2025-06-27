@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link } from "react-router-dom";
+import useFetch from "./Fetch";
 
 function Categories({ setShowMainMenu }) {
-    const [products, setProducts] = useState([]);
+    //const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState();
+    const [products] = useFetch("https://fakestoreapi.com/products/categories");
 
-    useEffect(() => {
-        fetch("https://fakestoreapi.com/products/categories")
-            .then((response) => response.json())
-            .then((data) => {
-                setProducts(data);
-                setLoading(false);
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch("https://fakestoreapi.com/products/categories")
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             setProducts(data);
+    //             setLoading(false);
+    //         });
+    // }, []);
 
   
 
@@ -36,9 +38,15 @@ function Categories({ setShowMainMenu }) {
                                     View Product
                                 </Link>
                             </div>
+                          
                         </div>
+                      
                     ))
+
                 )}
+            </div>
+            <div className="container" style={{textAlign:"center", marginTop:"20px"}}>
+                <Link className="btn btn-primary" to="/all products" style={{marginTop:"20px"}}>All Products</Link>
             </div>
         </>
     );

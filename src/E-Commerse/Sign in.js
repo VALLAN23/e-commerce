@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';  
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 function LoginPage() {
@@ -13,24 +15,24 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-container">
+    <div className="container" style={{textAlign:"center", marginTop:"80px"}}>
       <form className="login-form" onSubmit={handleLogin}>
         <h2>Login</h2>
-        <input
+        <input style={{marginTop:"20px"}}
           type="email"
           placeholder="Email"
           value={email}
           required
           onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
+        /><br/>
+        <input style={{marginTop:"10px"}}
           type="password"
           placeholder="Password"
           value={password}
           required
           onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
+        /><br/>
+        <button type="submit" style={{marginTop:"10px"}}>Login</button>
       </form>
     </div>
   );

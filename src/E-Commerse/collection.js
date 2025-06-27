@@ -1,6 +1,8 @@
 import {useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import Mainmenu from './Mainmenu';
+import 'bootstrap/dist/css/bootstrap.min.css';  
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function Details() {
     const[category, setCategory] = useState({});
@@ -15,23 +17,32 @@ function Details() {
     return(
         <>
         <Mainmenu/>
-        <div className='d-flex justify-content-center align-items-center section' style={{minHeight:"80vh"}} >
-            <div className='row m-5 w-100'>
-                <div className='col-md-3 mb-5'>
-                    <div className='card h-100 text-center p-3 cstegory-card' >
+        <div className=' container'  >
+            <div className='row'>
+                <div className='col'>
+                    <div style={{width:"30rem"}} >
 
                         <img src={category.image}
                              alt={category.title}
-                             className='img-fulid mx-auto'
-                             style={{ maxHeight:"300px", maxWidth:"200px", objectFit:"contain"}}      
+                             className='card-img-left'
+                             style={{ height:"500px", width:"500px", objectFit:"contain",display:"flex"}}      
                         />
-                        <div><strong>Categories</strong>{category.category}</div>
-                        <div><strong>Description</strong>{category.description}</div>
-                    </div><br/>
-                     <h3 className='col-md-4 mb-5' style={{justifyContent:"center" }}>All Collections</h3>
+                    </div>
                 </div>
+                <div className='col' style={{marginTop:"50px", fontSize:"x-large"}}>
+                    {category.title}
+                    <div style={{fontFamily:"monospace", color:"blue", marginTop:"20px"}}> <h1>Price:{category.price}</h1></div>
+                    <div><h2>About this item</h2></div>
+                    <div>{category.description}</div>
+                    <div style={{ marginTop:"30px"}}><button style={{borderRadius:"20px"}} className='btn btn-warning'>Add to Cart</button></div>
+                    </div> 
+
+                   
+                            
             </div>
         </div>
+        
+        
        
         </>
     );

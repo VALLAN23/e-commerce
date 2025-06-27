@@ -3,17 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Mainmenu from "./Mainmenu";
 import { useNavigate } from "react-router-dom";
+import useFetch from "./Fetch";
 
 
 function MenC() {
-    const[collections, setCollections] = useState([]);
+    // const[collections, setCollections] = useState([]);
     const navigate = useNavigate();
+    const [collections] = useFetch("https://fakestoreapi.com/products/category/men's clothing");
 
-    useEffect(() => {
-        fetch("https://fakestoreapi.com/products/category/men's clothing")
-        .then((response) => response.json())
-        .then((data) => { setCollections(data)});
-    },[]);
+    // useEffect(() => {
+    //     fetch("https://fakestoreapi.com/products/category/men's clothing")
+    //     .then((response) => response.json())
+    //     .then((data) => { setCollections(data)});
+    // },[]);
 
     const getIdData = (a) => {
       navigate(`/proDetails/${a}`)
@@ -30,7 +32,7 @@ function MenC() {
             <div className="row">
                 {collections.map((item, index) => (
                   <div key={index} className="col-md-4 mb-4" onClick={() => getIdData(item.id)}>
-                    <div className="card h-100">
+                    <div className="card h-100" style={{boxShadow: "0 8px 8px rgba(1, 1, 1, 1)"}}>
                         <img 
                             src={item.image}
                             alt={item.title}
@@ -43,7 +45,6 @@ function MenC() {
                     </div>
                     <div className="card-footer d-flex justify-content-between align-items-center">
                         <span className="text-success fw-bold">Rs {item.price}</span>
-                        <button className="btn btn-warning">Add To Card</button>
                     </div>
                     </div>
                   </div>

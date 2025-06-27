@@ -40,15 +40,11 @@ header {
   font-size: 1.5rem;
 }
 button {
-  background-color: #61dafb;
   color: #282c34;
-  border: none;
-  padding: 10px 20px;
   font-size: 1rem;
-  cursor: pointer; 
-  white-space: nowrap;   
-  height: 50px;
-  padding-top: 10px;
+  cursor: pointer;  
+  background-color: yellow;
+  border: none;
 }
 button:hover {
   background-color: #21a1f1;      
@@ -67,4 +63,12 @@ nav{
   padding: 10px;
   text-align: center;
   font-size: 1.2rem;
+}
+.products{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+
 }

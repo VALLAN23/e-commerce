@@ -9,6 +9,7 @@ import Electronics from "./Electronics";
 import MenC from "./Men c";
 import WomenC from "./WomensC";
 import Details from "./collection";
+import AllProducts from "./All collection";
 
  
 function Routerpath() {
@@ -28,6 +29,7 @@ function Routerpath() {
                 <Route path="men's clothing" element = {<MenC/>}/>
                 <Route path="women's clothing" element = {<WomenC/>}/>
                 <Route path="proDetails/:id" element = {<Details/>}/>
+                 <Route path="all products" element = {<AllProducts/>}/>
                 
                 </Route>
 
